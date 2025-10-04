@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="86d7955e4ae8412583bcbe0cbc3468b9" Name="Diagram1">
+        <EntityTypeShape EntityType="SalimgarevaShoesModel.Categories" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalimgarevaShoesModel.Manufacturers" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalimgarevaShoesModel.OrderProduct" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalimgarevaShoesModel.Orders" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalimgarevaShoesModel.OrderStatus" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalimgarevaShoesModel.PickUpPoints" Width="1.5" PointX="0.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalimgarevaShoesModel.Products" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalimgarevaShoesModel.Supplers" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalimgarevaShoesModel.UserRole" Width="1.5" PointX="1.5" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalimgarevaShoesModel.Users" Width="1.5" PointX="0.75" PointY="14.5" IsExpanded="true" />
+        <AssociationConnector Association="SalimgarevaShoesModel.FK_Products_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="SalimgarevaShoesModel.FK_Products_Manufacturers" ManuallyRouted="false" />
+        <AssociationConnector Association="SalimgarevaShoesModel.FK_OrderProduct_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="SalimgarevaShoesModel.FK_OrderProduct_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="SalimgarevaShoesModel.FK_Orders_OrderStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="SalimgarevaShoesModel.FK_Orders_PickUpPoints" ManuallyRouted="false" />
+        <AssociationConnector Association="SalimgarevaShoesModel.FK_Orders_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="SalimgarevaShoesModel.FK_Products_Supplers" ManuallyRouted="false" />
+        <AssociationConnector Association="SalimgarevaShoesModel.FK_Users_UserRole" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

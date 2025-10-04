@@ -1,0 +1,15 @@
+﻿<Application x:Class="SalimgareevaShoes.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:SalimgareevaShoes"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="10" ></Setter>
+            <Setter Property="FontSize" Value="20" ></Setter>
+            <Setter Property="Background" Value="#00FA9A" ></Setter>
+            <Setter Property="Height" Value="30" ></Setter>
+            <Setter Property="Width" Value="175" ></Setter>
+        </Style>
+    </Application.Resources>
+</Application>
