@@ -14,6 +14,36 @@
             <RowDefinition/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
+
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
+
+            <StackPanel Orientation="Vertical" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Bottom" >
+                <TextBlock Text="Введите данные для поиска через пробел" FontSize="20" ></TextBlock>
+                <TextBox Name="SearchTB" TextChanged="SearchTB_TextChanged" FontSize="20" ></TextBox>
+            </StackPanel>
+            
+            <StackPanel Orientation="Vertical" Margin="10">
+                <TextBlock FontSize="20" Text="Сортировать по количеству на складе"  ></TextBlock>
+                <ComboBox FontSize="20" Name="SortCB"  SelectionChanged="SortCB_SelectionChanged" >
+                    <TextBlock FontSize="20">Не сортировать</TextBlock>
+                    <TextBlock FontSize="20">По возрастанию</TextBlock>
+                    <TextBlock FontSize="20">По убыванию</TextBlock>
+                </ComboBox>
+            </StackPanel>
+            
+            <StackPanel Orientation="Vertical" Margin="10">
+                <TextBlock Text="Сортирорать по поставщику" FontSize="20"  ></TextBlock>
+                <ComboBox Name="SupplersCB" FontSize="20"  SelectionChanged="SupplereCB_SelectionChanged">
+                    <TextBlock Text="Все" FontSize="20"></TextBlock>
+                    <TextBlock Text="Kari" FontSize="20" ></TextBlock>
+                    <TextBlock Text="Обувь для вас" FontSize="20" ></TextBlock>
+                </ComboBox>
+            </StackPanel>
+            
+        </StackPanel>
+        
+        
         <ListView Name="ShoesListView" Grid.Row="1" >
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -26,7 +56,7 @@
                                 <ColumnDefinition Width="150"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="40" />
+                                <RowDefinition  />
                                 <RowDefinition />
                                 <RowDefinition />
                                 <RowDefinition />
