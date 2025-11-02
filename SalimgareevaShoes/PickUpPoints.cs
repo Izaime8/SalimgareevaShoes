@@ -25,7 +25,15 @@ namespace SalimgareevaShoes
         public string PickUpPointAddressCity { get; set; }
         public string PickUpPointAddressStreet { get; set; }
         public string PickUpPointAddressHouse { get; set; }
-    
+
+        public string OrderPickUpPointStr
+        {
+            get
+            {
+                return PickUpPointAddressIndex + " " + PickUpPointAddressCity + " " + PickUpPointAddressStreet + " " + PickUpPointAddressHouse;
+            }
+        }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Orders> Orders { get; set; }
     }

@@ -122,5 +122,6 @@
         </ListView>
 
 
+        <Button x:Name="ViewOrdersButton" Grid.Row="3" Visibility="Collapsed" Content="Заказы" Click="ViewOrdersButton_Click" HorizontalAlignment="Left"></Button>
     </Grid>
 </Page>

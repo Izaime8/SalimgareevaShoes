@@ -126,6 +126,8 @@
         </ListView>
 
 
-        <Button Name="AddButton" Content="Добавить" Click="AddButton_Click" Grid.Row="3" ></Button>
+        <Button Name="AddButton" Content="Добавить" Click="AddButton_Click" HorizontalAlignment="Right" Grid.Row="3" ></Button>
+        <Button Name="ViewOrdersButton" Grid.Row="3" Visibility="Visible" Content="Заказы" Click="ViewOrdersButton_Click" HorizontalAlignment="Left"></Button>
+
     </Grid>
 </Page>

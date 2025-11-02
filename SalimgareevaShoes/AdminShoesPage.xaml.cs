@@ -183,5 +183,10 @@ namespace SalimgareevaShoes
             SalimgarevaShoesEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
             UpdateProduct();
         }
+
+        private void ViewOrdersButton_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new OrdersPage());
+        }
     }
 }
