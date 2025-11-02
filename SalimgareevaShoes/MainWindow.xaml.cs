@@ -23,7 +23,7 @@ namespace SalimgareevaShoes
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new ShoesPage());
+            MainFrame.Navigate(new AuthPage());
             Manager.MainFrame = MainFrame;
         }
 

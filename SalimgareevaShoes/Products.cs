@@ -11,7 +11,6 @@ namespace SalimgareevaShoes
 {
     using System;
     using System.Collections.Generic;
-    using System.Windows;
     using System.Windows.Media;
 
     public partial class Products
@@ -22,6 +21,7 @@ namespace SalimgareevaShoes
             this.OrderProduct = new HashSet<OrderProduct>();
         }
     
+        public int ProductID { get; set; }
         public string ProductArticle { get; set; }
         public string ProductName { get; set; }
         public string ProductUnitMeasure { get; set; }
@@ -34,6 +34,11 @@ namespace SalimgareevaShoes
         public string ProductDescription { get; set; }
         public string ProductImage { get; set; }
 
+
+
+
+
+
         public SolidColorBrush DiscountColor
         {
             get
@@ -42,17 +47,17 @@ namespace SalimgareevaShoes
                     return (SolidColorBrush)new BrushConverter().ConvertFromString("lightblue");
                 if (ProductCurrentDiscount > 15)
                 {
-                    return (SolidColorBrush) new BrushConverter().ConvertFromString("#2E8B57");
+                    return (SolidColorBrush)new BrushConverter().ConvertFromString("#2E8B57");
                 }
                 return null;
             }
         }
-        
+
         public SolidColorBrush CostColor
         {
             get
             {
-                
+
                 if (ProductCurrentDiscount > 0)
                     return (SolidColorBrush)new BrushConverter().ConvertFromString("red");
                 return null;
@@ -71,12 +76,11 @@ namespace SalimgareevaShoes
 
         public string NewCost
         {
-            get {
+            get
+            {
                 return (ProductCost * (100 - ProductCurrentDiscount) / 100).ToString();
             }
         }
-
-       
 
 
         public virtual Categories Categories { get; set; }

@@ -16,46 +16,31 @@ using System.Windows.Shapes;
 namespace SalimgareevaShoes
 {
     /// <summary>
-    /// Логика взаимодействия для ShoesPage.xaml
+    /// Логика взаимодействия для AdminShoesPage.xaml
     /// </summary>
-    public partial class ShoesPage : Page
+    public partial class AdminShoesPage : Page
     {
-        
         bool IsAddEditWindowOpen = false;
-        public ShoesPage(Users user)
+
+        public AdminShoesPage(Users user)
         {
             InitializeComponent();
 
-            
+
             SortCB.SelectedIndex = 0;
             SupplersCB.SelectedIndex = 0;
             UpdateProduct();
 
-           if (user != null)
-           {
-                FIOStackPanel.Visibility = Visibility.Visible;
-                LastNameTextBlock.Text = user.UserSurname;
-                FirstNameTextBlock.Text = user.UserName;
-                PatronymicTextBlock.Text = user.UserPatronymic;
-                if (user.UserRoleID == 2)
-                {
-                    SearchFilterSortStackPanel.Visibility = Visibility.Visible;
-                }
-            }
-          
-            
-           
-
-
-            
+            LastNameTextBlock.Text = user.UserSurname;
+            FirstNameTextBlock.Text = user.UserName;
+            PatronymicTextBlock.Text = user.UserPatronymic;
+                
 
         }
 
         void UpdateProduct()
         {
             var currentProducts = SalimgarevaShoesEntities.GetContext().Products.ToList();
-
-            
 
 
 
@@ -101,7 +86,7 @@ namespace SalimgareevaShoes
 
         }
 
-        
+
 
         private void SearchTB_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -109,7 +94,7 @@ namespace SalimgareevaShoes
 
         }
 
-       
+
 
         private void SortCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -123,6 +108,75 @@ namespace SalimgareevaShoes
 
         }
 
+
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!IsAddEditWindowOpen)
+            {
+                IsAddEditWindowOpen = true;
+
+                AddEditWindow addEditWindow = new AddEditWindow(null);
+                addEditWindow.ShowDialog();
+
+                IsAddEditWindowOpen = false;
+                SalimgarevaShoesEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                UpdateProduct();
+            }
+            else
+            {
+                MessageBox.Show("Нельзя открывать несколько окон редактирования одновременно");
+                return;
+            }
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!IsAddEditWindowOpen)
+            {
+                IsAddEditWindowOpen = true;
+
+                AddEditWindow addEditWindow = new AddEditWindow((sender as Button).DataContext as Products);
+                addEditWindow.ShowDialog();
+
+                IsAddEditWindowOpen = false;
+                SalimgarevaShoesEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                UpdateProduct();
+            }
+            else
+            {
+                MessageBox.Show("Нельзя открывать несколько окон редактирования одновременно");
+                return;
+            }
+
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            Products p = (sender as Button).DataContext as Products;
+            if (p.OrderProduct.Count > 0)
+            {
+                MessageBox.Show("Нельзя удалить товар в заказе");
+                return;
+            }
+
+            if (MessageBox.Show("Удалить выбранный элемент?", "ВНИМАНИЕ!", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                SalimgarevaShoesEntities.GetContext().Products.Remove(p);
+                try
+                {
+                    SalimgarevaShoesEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Информация удалена");
+                    SalimgarevaShoesEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(q => q.Reload());
+                    UpdateProduct();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
+        }
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {

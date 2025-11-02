@@ -10,7 +10,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <TextBlock Text="ООО «Обувь»" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center"  ></TextBlock>
         <Image Source="img/Icon.png" HorizontalAlignment="Left" Margin="5" ></Image>

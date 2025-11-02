@@ -22,10 +22,10 @@
         <EntityType Name="OrderProduct">
           <Key>
             <PropertyRef Name="OrderID" />
-            <PropertyRef Name="ProductArticul" />
+            <PropertyRef Name="ProductID" />
           </Key>
           <Property Name="OrderID" Type="int" Nullable="false" />
-          <Property Name="ProductArticul" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
           <Property Name="ProductQuantity" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Orders">
@@ -59,8 +59,9 @@
         </EntityType>
         <EntityType Name="Products">
           <Key>
-            <PropertyRef Name="ProductArticle" />
+            <PropertyRef Name="ProductID" />
           </Key>
+          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProductArticle" Type="char" MaxLength="6" Nullable="false" />
           <Property Name="ProductName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ProductUnitMeasure" Type="varchar" MaxLength="10" Nullable="false" />
@@ -116,10 +117,10 @@
           <End Role="OrderProduct" Type="Self.OrderProduct" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Products">
-              <PropertyRef Name="ProductArticle" />
+              <PropertyRef Name="ProductID" />
             </Principal>
             <Dependent Role="OrderProduct">
-              <PropertyRef Name="ProductArticul" />
+              <PropertyRef Name="ProductID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -279,10 +280,10 @@
         <EntityType Name="OrderProduct">
           <Key>
             <PropertyRef Name="OrderID" />
-            <PropertyRef Name="ProductArticul" />
+            <PropertyRef Name="ProductID" />
           </Key>
           <Property Name="OrderID" Type="Int32" Nullable="false" />
-          <Property Name="ProductArticul" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
           <Property Name="ProductQuantity" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Orders" Relationship="Self.FK_OrderProduct_Orders" FromRole="OrderProduct" ToRole="Orders" />
           <NavigationProperty Name="Products" Relationship="Self.FK_OrderProduct_Products" FromRole="OrderProduct" ToRole="Products" />
@@ -324,8 +325,9 @@
         </EntityType>
         <EntityType Name="Products">
           <Key>
-            <PropertyRef Name="ProductArticle" />
+            <PropertyRef Name="ProductID" />
           </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProductArticle" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ProductUnitMeasure" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
@@ -413,10 +415,10 @@
           <End Role="OrderProduct" Type="Self.OrderProduct" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Products">
-              <PropertyRef Name="ProductArticle" />
+              <PropertyRef Name="ProductID" />
             </Principal>
             <Dependent Role="OrderProduct">
-              <PropertyRef Name="ProductArticul" />
+              <PropertyRef Name="ProductID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -554,7 +556,7 @@
             <EntityTypeMapping TypeName="SalimgarevaShoesModel.OrderProduct">
               <MappingFragment StoreEntitySet="OrderProduct">
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
-                <ScalarProperty Name="ProductArticul" ColumnName="ProductArticul" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="ProductQuantity" ColumnName="ProductQuantity" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -594,6 +596,7 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="SalimgarevaShoesModel.Products">
               <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="ProductArticle" ColumnName="ProductArticle" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
                 <ScalarProperty Name="ProductUnitMeasure" ColumnName="ProductUnitMeasure" />

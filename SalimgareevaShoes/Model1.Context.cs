@@ -15,10 +15,11 @@ namespace SalimgareevaShoes
     
     public partial class SalimgarevaShoesEntities : DbContext
     {
+
         private static SalimgarevaShoesEntities _context;
         public static SalimgarevaShoesEntities GetContext()
         {
-            if ( _context == null )
+            if  (_context == null)
                 _context = new SalimgarevaShoesEntities();
             return _context;
         }

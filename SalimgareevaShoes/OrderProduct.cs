@@ -15,7 +15,7 @@ namespace SalimgareevaShoes
     public partial class OrderProduct
     {
         public int OrderID { get; set; }
-        public string ProductArticul { get; set; }
+        public int ProductID { get; set; }
         public int ProductQuantity { get; set; }
     
         public virtual Orders Orders { get; set; }
